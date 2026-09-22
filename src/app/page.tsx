@@ -1,47 +1,53 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import estilos from "./page.module.css";
 import ItemJogos from "./components/ItemJogos";
 import { jogosExclusivos, Jogo } from "../../dados/banco";
 
 export default function Home() {
-  const [textoBusca, setTextoBusca] = useState<string>("");
+  const [listaJogos, setListaJogos] = useState<Jogo[]>(jogosExclusivos);
 
-  // Filtra os jogos com base no texto de busca
-  const jogosFiltrados = jogosExclusivos.filter((jogo: Jogo) =>
-    jogo.nome.toLowerCase().includes(textoBusca.toLowerCase())
-  );
+  const handleFiltrarJogoPlataforma = (
+    plataforma: "xbox" | "playstation" | "nintendo"
+  ) => {
+    const jogosFiltrados = jogosExclusivos.filter(
+      (jogo: Jogo) => jogo.plataforma === plataforma
+    );
+    setListaJogos(jogosFiltrados);
+  };
+
+  const handleLimparFiltro = () => {
+    setListaJogos(jogosExclusivos);
+  };
 
   return (
     <div className={estilos.container_principal}>
       <h2>Lista de Jogos Exclusivos</h2>
 
-      <div className={estilos.container_input}>
-        <Image src="/lupa.png" alt="Ícone de busca" width={20} height={20} />
-        <input
-          type="text"
-          placeholder="Pesquisar por um jogo..."
-          value={textoBusca}
-          onChange={(e) => setTextoBusca(e.target.value)}
-        />
+      {/* Bloco de Botões de Filtro */}
+      <div className={estilos.container_btns}>
+        <button onClick={() => handleFiltrarJogoPlataforma("xbox")}>
+          XBOX
+        </button>
+        <button onClick={() => handleFiltrarJogoPlataforma("playstation")}>
+          PlayStation
+        </button>
+        <button onClick={() => handleFiltrarJogoPlataforma("nintendo")}>
+          Nintendo
+        </button>
+        <button onClick={() => handleLimparFiltro()}>Limpar Filtro</button>
       </div>
 
+      {/* Bloco de Exibição dos Cards */}
       <div className={estilos.container_cards}>
-        {jogosFiltrados.length > 0 ? (
-          jogosFiltrados.map((jogo: Jogo) => (
-            <ItemJogos
-              key={jogo.id}
-              nome={jogo.nome}
-              plataforma={jogo.plataforma}
-            />
-          ))
-        ) : (
-          <p style={{ color: "#777", marginTop: "20px" }}>
-            Nenhum jogo encontrado.
-          </p>
-        )}
+        {listaJogos.map((jogo: Jogo) => (
+          <ItemJogos
+            key={jogo.id}
+            nome={jogo.nome}
+            plataforma={jogo.plataforma}
+          />
+        ))}
       </div>
     </div>
   );
