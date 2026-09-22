@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎮 E-Games Catalog | Next.js & TypeScript
 
-## Getting Started
+Uma aplicação web moderna, responsiva e fortemente tipada desenvolvida para catalogar e filtrar jogos exclusivos por plataforma e pesquisa em tempo real.
 
-First, run the development server:
+🔗 **Live Demo:** [https://projeto-jogos-eta.vercel.app/](https://projeto-jogos-eta.vercel.app/)  
+📂 **Repositório:** [https://github.com/fau-33/projeto-jogos](https://github.com/fau-33/projeto-jogos)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📌 Sobre o Projeto
+
+O **E-Games Catalog** foi desenvolvido com o objetivo de demonstrar o domínio de conceitos fundamentais do **React** e **Next.js**, como manipulação de estado, renderização condicional, filtragem dinâmica de arrays e modularização com **TypeScript**.
+
+### 💡 Destaques da Aplicação
+
+- **Filtro em Tempo Real:** Busca dinâmica por nome do jogo ou nome da plataforma com validação ignorando maiúsculas/minúsculas.
+- **Filtros por Categoria:** Seleção rápida por plataformas (_Xbox, PlayStation, Nintendo_) com reset automático do campo de busca.
+- **Sincronização de Estado:** Controle preciso de inputs através de _Controlled Components_ com `useState`.
+- **Componentização Reutilizável:** Estrutura modular limpa e desacoplada utilizando CSS Modules.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **[Next.js 14+](https://nextjs.org/)** (App Router & Client Components)
+- **[React](https://react.dev/)** (Hooks como `useState`)
+- **[TypeScript](https://www.typescriptlang.org/)** (Interfaces, Union Types e Mapeamento Estático)
+- **CSS Modules** (Escopamento local de estilos)
+- **Vercel** (Deploy e Integração Contínua)
+
+---
+
+## 🏗️ Arquitetura e Estrutura de Pastas
+
+```text
+projeto-jogos/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── ItemJogos.tsx           # Componente individual de card do jogo
+│   │   │   └── ItemJogos.module.css    # Estilização escopada do card
+│   │   ├── page.tsx                    # Página principal e gerenciamento de estado
+│   │   └── page.module.css             # Estilização do layout da página
+│   └── dados/
+│       └── banco.ts                    # Mapeamento de dados e Interfaces TypeScript
+└── public/                             # Recursos estáticos (Logos e ícones)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```text
+    🧠 Conceitos e Boas Práticas Aplicadas
+Tipagem Estrita com TypeScript:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Declaração de Interface para a entidade Jogo e para as Props dos componentes.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Uso de Union Types para delimitar as plataformas aceitas ("xbox" | "playstation" | "nintendo").
 
-## Learn More
+Performance e Renderização Otimizada:
 
-To learn more about Next.js, take a look at the following resources:
+Uso correto da propriedade key={jogo.id} no encadeamento de métodos de array (.map), evitando re-renders desnecessários no Virtual DOM.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Caminhos Estáticos Absolutos:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Consumo otimizado de ativos estáticos a partir da pasta /public com o componente <Image /> do Next.js.
 
-## Deploy on Vercel
+🚀 Como Executar o Projeto Localmente
+Clone o repositório:
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```Bash
+git clone [https://github.com/fau-33/projeto-jogos.git](https://github.com/fau-33/projeto-jogos.git)
+Acesse a pasta do projeto:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Bash
+cd projeto-jogos
+Instale as dependências:
+
+Bash
+npm install
+Inicie o servidor de desenvolvimento:
+
+Bash
+npm run dev
+Acesse http://localhost:3000 no seu navegador.
+
+👨‍💻 Autor
+Desenvolvido por Flávio Leandro.
+
+Sinta-se à vontade para conectar-se comigo ou enviar feedback sobre o projeto!
+
+```
