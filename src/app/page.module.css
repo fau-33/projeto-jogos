@@ -38,3 +38,30 @@
   align-items: center;
   width: 100%;
 }
+
+/* Container que segura todos os botões de filtro juntos */
+.container_btns {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Estilo individual de cada botão */
+.container_btns button {
+  padding: 10px 18px;
+  border: 1px solid #0070f3;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #0070f3;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Efeito ao passar o mouse por cima do botão */
+.container_btns button:hover {
+  background-color: #0070f3;
+  color: #ffffff;
+}
