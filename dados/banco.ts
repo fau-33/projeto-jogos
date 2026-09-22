@@ -1,4 +1,3 @@
-// Definimos o tipo dos dados de cada jogo
 export interface Jogo {
   id: number;
   nome: string;
