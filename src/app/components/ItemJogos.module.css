@@ -1,0 +1,30 @@
+/* O card completo do jogo */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-bottom: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* O espaço reservado para a logo da plataforma */
+.card figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* O texto com o nome do jogo */
+.card p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333333;
+}
